@@ -13,7 +13,7 @@ if [ "$web_title" == "$expected_text" ]; then
     # For example, echo "Hello, World!"
     
     
-    jp2a images.png --colors
+    jp2a logo.png --colors
     
     
     tail -c 388 /storage/emulated/0/kampret/domar/*  > hasil3.txt
