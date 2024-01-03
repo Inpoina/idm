@@ -8,7 +8,7 @@ read -r expected_text
 web_title=$(curl -s https://wificost.my.id/kampretsh/ | grep -o -m 1 "<title>[^<]*" | sed -e 's/<title>//')
 
 if [ "$web_title" == "$expected_text" ]; then
-    echo "password accepted!. Executing command..."
+    echo "password acepted!. Executing command..."
     # Replace the following line with your desired command
     # For example, echo "Hello, World!"
     
@@ -63,9 +63,16 @@ if [ "$web_title" == "$expected_text" ]; then
     sleep 1
     type_text "find price by struk..."
     sleep 1
-    type_text "colecting...."
+    type_text "Calculating total..."
     
-        
+    sleep 0.4
+    echo -n -e "\033[92m.\033[0m"
+    sleep 0.4
+    echo -n -e "\033[92m.\033[0m"
+    sleep 0.4
+    echo -n -e "\033[92m.\033[0m"
+    sleep 0.7
+    
     
     spinner="/|\\-"
     count=0
@@ -77,7 +84,6 @@ if [ "$web_title" == "$expected_text" ]; then
         sleep 0.1
         ((count++))
     done
-    echo -e "\r\033[K"
     
     awk '{ sum += $1 } END { printf "\033[93m Rp %'\''d\n\033[0m", sum }' final2.txt
     echo -n "kurangi dengan stor/tarik tunai debit,isaku,ovo dll jika ada"
