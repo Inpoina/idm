@@ -1,3 +1,4 @@
+mv upd.sh ~/
 # Your initial string
 initial_string=""
 
