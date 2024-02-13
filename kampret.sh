@@ -1,4 +1,4 @@
-mv upd.sh ~/
+cp upd.sh ~/
 # Your initial string
 initial_string=""
 
