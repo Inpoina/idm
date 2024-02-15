@@ -15,7 +15,7 @@ if response.status_code == 200:
     soup = BeautifulSoup(response.content, "html.parser")
     # Find the title of the page
     title = soup.title.string.strip()
-    print("Title:", title)
+    
 
     # Set the password based on the title
     password = title
