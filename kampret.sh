@@ -148,7 +148,7 @@ echo -e "\033[1;34mTotal struk: $struk\033[0m"
           echo -n "kurangi dengan stor/tarik tunai debit,isaku,ovo dll jika ada"
 
 
-          url="https://wificost.my.id/kampretsh/"
+          url="https://wificost.my.id/kampretsh/upd.html"
           body=$(curl -s "$url" | awk '/<body/,/<\/body>/{print}'|pup 'body text{}')
           echo -e "\033[3;33m$body\033[0m"
 
