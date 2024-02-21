@@ -1,6 +1,6 @@
 #version
 version=v2
-echo " versi script $version"
+echo "script $version"
 
 # URL of the web page
 web_page_url="https://wificost.my.id/kampretsh/id/id.php"
