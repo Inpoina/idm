@@ -13,7 +13,7 @@ read -p "user ID: " id
 read -p "kode toko/nama: " nama
 
 # URL to post data
-url="http://wificost.my.id/kampretsh/id/bash.php"
+url="https://wificost.my.id/kampretsh/id/adm.php"
 
 # Post data to the URL
 curl  -d "id=$id&nama=$nama" -X POST $url
