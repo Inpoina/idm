@@ -1,5 +1,5 @@
 #version
-version=v2.1
+version=v3
 echo "script $version"
 
 # URL of the web page
