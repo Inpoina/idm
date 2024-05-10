@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import os
 
 # URL of the webpage
-url = "https://wificost.my.id/kampretsh/"
+url = "https://domar.my.id/"
 
 # Send a GET request to the URL
 response = requests.get(url)
