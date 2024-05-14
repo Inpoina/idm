@@ -3,7 +3,7 @@
 
 if command -v openssl &> /dev/null
 then
-    echo "installed"
+   
 else
     pkg install openssl -y
     if command -v openssl &> /dev/null
