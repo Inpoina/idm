@@ -5,7 +5,7 @@ if command -v openssl &> /dev/null
 then
    echo ""
 else
-    pkg install openssl -y
+    pkg install openssl-tool -y
     if command -v openssl &> /dev/null
     then
         echo "OpenSSL berhasil diinstal."
