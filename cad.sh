@@ -3,17 +3,17 @@
 # Function to check if a Python package is installed
 check_package() {
     PACKAGE=$1
-    if python3 -c "import $PACKAGE" &> /dev/null; then
-        echo "$PACKAGE is already installed"
+    if python -c "import $PACKAGE" &> /dev/null; then
+        echo ""
     else
         echo "$PACKAGE is not installed. Installing..."
-        pip3 install $PACKAGE
+        pip install $PACKAGE
     fi
 }
 
 # Check if Python is installed
 if command -v python3 &> /dev/null; then
-    echo "Python is already installed"
+    echo ""
 else
     echo "Python is not installed. Installing..."
     pkg install python -y
