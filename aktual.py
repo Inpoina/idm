@@ -53,15 +53,15 @@ if response.status_code == 200:
         def dibayar(file_path):
             with open(file_path, 'r') as file:
                 content = file.read()
-                return content[-440:]
+                return content[-500:]
 
         def main():
             output_list = []
             for file_name in os.listdir(folder_path):
                 file_path = os.path.join(folder_path, file_name)
                 if os.path.isfile(file_path):
-                    last_440_chars = dibayar(file_path)
-                    output_list.append(last_440_chars)
+                    last_500_chars = dibayar(file_path)
+                    output_list.append(last_500_chars)
             return output_list
 
         if __name__ == "__main__":
