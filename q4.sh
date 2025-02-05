@@ -33,4 +33,3 @@ while IFS= read -r block; do
     ((counter++))
 done <<< "$blocks"
 
-echo "CSV file saved as $output_csv"
