@@ -10,7 +10,7 @@ blocks=$(echo "$input" | grep -oP '\{.*?\}')
 counter=1
 
 # Output CSV file
-output_csv="output.csv"
+output_csv="output.txt"
 
 # Write CSV header
 echo "Kunci,qty" > "$output_csv"
