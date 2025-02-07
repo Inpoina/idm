@@ -1,4 +1,4 @@
-find /storage/emulated/0/kampret/domar/ -type f -name "*" -exec awk -v start="DaftarIndex" -v end="KumpulanBarangJualString" '
+find /storage/emulated/0/kampret/query/ -type f -name "*" -exec awk -v start="DaftarIndex" -v end="KumpulanBarangJualString" '
 BEGIN {
   RS = "\r?\n"  # Handle Windows/Unix line endings
 }
