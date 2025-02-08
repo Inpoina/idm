@@ -1,35 +1,49 @@
 #!/bin/bash
 
-# Read the file content and remove newlines to handle multi-line blocks
+# Baca file dan hapus newline untuk menangani blok multi-line
 input=$(tr -d '\n' < results2.txt)
 
-# Extract each JSON object block enclosed in {}
+# Ekstrak setiap blok JSON dalam {}
 blocks=$(echo "$input" | grep -oP '\{.*?\}')
 
-# Initialize counter
+# Hitung total blok untuk keperluan progres
+total_blocks=$(echo "$blocks" | wc -l)
+
+# Inisialisasi counter
 counter=1
 
-# Output CSV file
+# File output
 output_csv="output.txt"
 
-# Write CSV header
+# Tulis header ke file output
 echo "Kunci,qty" > "$output_csv"
 
-# Process each block to extract "Kunci" and "Isi" values
+# Proses setiap blok JSON
 while IFS= read -r block; do
-    # Extract KUNCİ value (e.g., "10010081")
+    # Ambil nilai "Kunci" (misal: "10010081")
     kunci=$(echo "$block" | grep -oP '"Kunci":"\K\d+')
-    # Extract ISI value (e.g., "0")
+
+    # Ambil nilai "Isi" (misal: "0")
     isi=$(echo "$block" | grep -oP '"Isi":"\K[^"]+')
 
-    # Count the number of "|" in the "Isi" value
+    # Hitung jumlah "|" dalam nilai "Isi"
     pipe_count=$(echo "$isi" | tr -cd '|' | wc -c)
 
-    # Add 1 to the pipe count
+    # Tambah 1 ke jumlah "|"
     pipe_count=$((pipe_count + 1))
 
-    # Write the result to the CSV file
+    # Simpan hasil ke file output
     echo "$kunci,$pipe_count" >> "$output_csv"
+
+    # Hitung persentase progres
+    progress=$((counter * 100 / total_blocks))
+
+    # Tampilkan progres di layar
+    echo -ne "Processing: $counter/$total_blocks ($progress%)\r"
+
+    # Tambah counter
     ((counter++))
 done <<< "$blocks"
 
+# Tampilkan pesan selesai
+echo -e "\nProses selesai! Hasil disimpan di $output_csv"
