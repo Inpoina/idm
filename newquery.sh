@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
+killall -9 mysql
+killall -9 mariadbd
+
 
 # Fungsi untuk menghentikan MySQL jika berjalan
 stop_mysql() {
@@ -60,18 +63,7 @@ INTO TABLE sold
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
-SELECT 
-   
-    t1.plu,
-    t1.deskripsi,
-    COALESCE(t2.qty, 0) AS stok_awal,
-    COALESCE(SUM(t3.qty), 0) AS stok_keluar,
-    COALESCE(t2.qty, 0) - COALESCE(SUM(t3.qty), 0) AS stok_akhir
-FROM list t1
-LEFT JOIN stok t2 ON t1.plu = t2.plu
-LEFT JOIN sold t3 ON t1.plu = t3.plu
-GROUP BY t1.id, t1.plu, t1.deskripsi, t2.qty
-ORDER BY t1.id;
+
 EOF
 
-echo "✅ Data berhasil diperbarui dan ditampilkan!"
+echo "✅ Data berhasil diperbarui!"
