@@ -1,45 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/sh
-killall -9 mysql
-killall -9 mariadbd
-
-
-# Fungsi untuk menghentikan MySQL jika berjalan
-stop_mysql() {
-    if pgrep -x "mariadbd" > /dev/null; then
-        echo "🔴 Menghentikan MySQL yang berjalan..."
-        pkill -9 mariadbd
-        sleep 3
-    fi
-}
-
-# Fungsi untuk membersihkan file yang mungkin terkunci
-clean_mysql_files() {
-    echo "🧹 Membersihkan file yang terkunci..."
-    rm -rf /data/data/com.termux/files/usr/var/lib/mysql/aria_log_control
-    rm -rf /data/data/com.termux/files/usr/var/lib/mysql/ibdata1
-}
-
-# Fungsi untuk menjalankan ulang MariaDB
-start_mysql() {
-    if ! pgrep -x "mariadbd" > /dev/null; then
-        echo "🚀 Memulai MySQL Server..."
-        mariadbd-safe -u root &
-        sleep 5
-    else
-        echo "✅ MySQL sudah berjalan."
-    fi
-}
-
-# Periksa apakah MySQL berjalan, jika tidak, restart
-if ! pgrep -x "mariadbd" > /dev/null; then
-    echo "⚠️  MySQL tidak berjalan, mencoba memperbaiki..."
-    stop_mysql
-    clean_mysql_files
-    start_mysql
-else
-    echo "✅ MySQL sudah berjalan."
-fi
-
 # Tanya pengguna apakah ingin update data
 read -p "🔄 Update data sebelum menampilkan tabel? (y/n): " choice
 if [[ "$choice" =~ ^[Yy]$ ]]; then
