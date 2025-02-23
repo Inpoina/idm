@@ -1,7 +1,7 @@
 SELECT 
    
     t1.plu,
-    t1.deskripsi,
+    REPLACE(REPLACE(t1.deskripsi, CHAR(13), ''), CHAR(10), ' ') AS deskripsi,
     COALESCE(t2.qty, 0) AS stok_awal,
     COALESCE(SUM(t3.qty), 0) AS stok_keluar,
     COALESCE(t2.qty, 0) - COALESCE(SUM(t3.qty), 0) AS stok_akhir
