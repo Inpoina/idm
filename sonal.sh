@@ -1,4 +1,3 @@
-GNU nano 8.3                   queryclean.sh
 mariadb -u root -proot -t -e "
 USE idm;
 SELECT 
