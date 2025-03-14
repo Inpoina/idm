@@ -14,7 +14,7 @@ else
 fi
 
 # Jalankan perintah MariaDB
-mariadb -u root <<EOF
+mariadb -u root -proot <<EOF
 USE idm;
 DELETE FROM sold;
 LOAD DATA LOCAL INFILE '/data/data/com.termux/files/home/idm/sold.csv'
