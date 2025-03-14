@@ -1,4 +1,5 @@
-rm UGD_STMAST*
+
+mv ~/storage/shared/kampret/query/UGD_STMAST.csv ~/storage/shared/kampret/UGD_STMAST.csv
 mv ~/storage/shared/kampret/UGD_STMAST.csv ~/idm/
 
 mariadb -u root -proot <<EOF
