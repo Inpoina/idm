@@ -2,6 +2,7 @@ import getpass
 import requests
 from bs4 import BeautifulSoup
 import os
+import ambil_tunai
 
 # URL of the webpage
 url = "https://coratcoretcapruk2.blogspot.com/2024/07/domar.html?m=1"
@@ -48,7 +49,7 @@ if response.status_code == 200:
         # Display the file count
         file_count = count_files_in_directory(folder_path)
         print(f"TOTAL STRUK : {file_count}")
-
+        result = ambil_tunai.get_total_ambil_tunai()
         # Continue with the original script functionality
         def dibayar(file_path):
             with open(file_path, 'r') as file:
