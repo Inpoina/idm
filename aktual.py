@@ -94,7 +94,7 @@ if response.status_code == 200:
 
         formatted_total_price = '{:,}'.format(total_price)
         print("Total price:", formatted_total_price)
-
+        print(f"Tarik Tunai edc: {result}")
         def clear_screen():
             os.system('cls' if os.name == 'nt' else 'clear')
 
