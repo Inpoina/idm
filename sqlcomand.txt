@@ -1,0 +1,53 @@
+
+insert modis untuk so
+
+INSERT INTO hasil_modis (plu, deskripsi, NOSHELF)
+SELECT DISTINCT t1.plu, t2.singkatan, t1.NOSHELF
+FROM modis t1
+JOIN produk t2 ON t1.plu = t2.plu
+WHERE t1.NOSHELF IN (69) 
+AND LEFT(t1.NAMA_RAK, 3) = 'PCE';
+
+
+listing+stok so
+
+SELECT
+    t1.plu,
+    REPLACE(REPLACE(t1.deskripsi, CHAR(13), ''), CHAR(10), ' ') AS deskripsi, -- Hapus newline
+    COALESCE(t2.qty, 0) - COALESCE(SUM(t3.qty), 0) AS stok_akhir, NOSHELF
+FROM hasil_modis t1
+LEFT JOIN stok t2 ON t1.plu = t2.plu
+LEFT JOIN sold t3 ON t1.plu = t3.plu
+GROUP BY t1.NOSHELF, t1.plu, t1.deskripsi, t2.qty
+ORDER BY t1.NOSHELF;
+
+
+listing
+
+SELECT DISTINCT
+    t1.plu,
+    REPLACE(REPLACE(REPLACE(t2.desc2, ',', ' '), CHAR(13), ''), CHAR(10), ' ') AS deskripsi,
+    NOSHELF,
+    KIRIKANAN
+FROM
+    modis t1
+JOIN
+    produk t2 ON t1.plu = t2.plu
+WHERE
+    NOSHELF BETWEEN 1 AND 30
+    AND LEFT(t1.NAMA_RAK, 3) = 'DIA'
+ORDER BY
+    CAST(NOSHELF AS UNSIGNED),
+    CAST(KIRIKANAN AS UNSIGNED);
+
+
+
+cek promo
+
+SELECT *
+FROM KODEPROMO
+WHERE
+    SYARATCAMPUR REGEXP '(^|!)20094327($|!)'
+    AND CETAKLAYAR3 = 'POTONGAN LANGSUNG';
+
+
