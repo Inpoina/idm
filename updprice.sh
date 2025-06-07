@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Move the file
+
+mv ~/storage/shared/kampret/query/UGD_PRODMAST.csv ~/storage/shared/kampret/UGD_PRODMAST.csv
 mv ~/storage/shared/kampret/UGD_PRODMAST.csv ~/idm/ 
 
 # Run MariaDB commands
