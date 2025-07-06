@@ -42,7 +42,7 @@ async function simpanRefreshToken() {
   const refreshToken = await getRefreshTokenFromHTML();
   if (refreshToken) {
     fs.writeFileSync('refreshToken.txt', refreshToken, 'utf8');
-    console.log('✅ Refresh token disimpan di refreshToken.txt');
+    console.log('✅ Refresh');
   }
 }
 
