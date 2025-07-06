@@ -27,7 +27,7 @@ async function getRefreshTokenFromHTML() {
       const toko = kolom.eq(1).text().trim();  // Mengambil nama toko dari kolom kedua
       token = kolom.eq(2).text().trim(); // Mengambil token dari kolom ketiga
 
-      console.log(`🔍 Cek baris ${i}: toko="${toko}", token="${token.substring(0, 20)}..."`);
+      //console.log(`🔍 Cek baris ${i}: toko="${toko}", token="${token.substring(0, 20)}..."`);
 
       if (toko === NAMA_TOKO_YANG_DICARI) {
         found = true;
