@@ -26,8 +26,8 @@ async function ambilUserToken() {
     const tokenBaru = response.data?.data?.accessToken;
     if (tokenBaru) {
       fs.writeFileSync('token.txt', tokenBaru);
-      console.log('✅ Berhasil ambil user_token dan simpan di token.txt');
-      console.log('🔑 accessToken:', tokenBaru);
+      console.log('✅ success');
+      console.log('🔑 accessToken success',);
     } else {
       console.log('❌ Token tidak ditemukan di response:', response.data);
     }
