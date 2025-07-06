@@ -2,7 +2,13 @@ const axios = require('axios');
 const cheerio = require('cheerio'); // Install dengan: npm install cheerio
 const fs = require('fs');  // Modul untuk menulis ke file
 
-const NAMA_TOKO_YANG_DICARI = 'TVE8'; // Ganti sesuai nama toko yang ingin diambil
+// Mengambil nama toko dari argumen command line
+const NAMA_TOKO_YANG_DICARI = process.argv[2]; // Argumen pertama setelah nama file
+
+if (!NAMA_TOKO_YANG_DICARI) {
+  console.log('❌ Silakan masukkan nama toko sebagai argumen.');
+  process.exit(1); // Keluar jika nama toko tidak diberikan
+}
 
 // Fungsi untuk mengambil refresh token dari HTML
 async function getRefreshTokenFromHTML() {
@@ -42,7 +48,7 @@ async function simpanRefreshToken() {
   const refreshToken = await getRefreshTokenFromHTML();
   if (refreshToken) {
     fs.writeFileSync('refreshToken.txt', refreshToken, 'utf8');
-    console.log('✅ Refresh');
+    console.log('✅ Refresh token disimpan di refreshToken.txt');
   }
 }
 
