@@ -35,7 +35,7 @@ if [ $? -eq 0 ]; then
         done
 
         # If the user provided a PLU, run crev7.js with the current PLU
-        echo "Menjalankan crev7.js untuk PLU $PLU..."
+        echo "running $PLU..."
         node crev7.js "$PLU"
         if [ $? -ne 0 ]; then
             echo "Error occurred in crev7.js for PLU $PLU. Exiting."
