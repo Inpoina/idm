@@ -158,6 +158,17 @@ const outputXLSX = path.join(__dirname, 'stok.xlsx');  // Changed to .xlsx
   const wb = xlsx.utils.book_new();
   const ws = xlsx.utils.json_to_sheet(excelData);
 
+  // Auto-adjust column widths
+  const colWidths = ['No', 'PLU', 'Nama Produk', 'Sisa Stok']; // Column names
+  colWidths.forEach((col) => {
+    const maxLength = Math.max(
+      ...excelData.map((row) => String(row[col]).length), // Find the max length of content in each column
+      col.length // Include the column name length for proper sizing
+    );
+    ws['!cols'] = ws['!cols'] || [];
+    ws['!cols'].push({ wch: maxLength + 2 }); // Set width with an extra margin
+  });
+
   // Add the sheet to the workbook
   xlsx.utils.book_append_sheet(wb, ws, "Cart");
 
