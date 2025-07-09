@@ -28,7 +28,7 @@ fi
 id=$(<"$id_file")
 
 # Check if the ID is listed on the web page
-web_page_url="https://example.com"  # Replace with the actual web page URL
+web_page_url="https://domarx.my.id"  # Replace with the actual web page URL
 if curl -s "$web_page_url" | grep -q "$id"; then
     # Get the expected password from the user
     echo -n "password: "
