@@ -146,7 +146,7 @@ const outputXLSX = path.join(__dirname, 'stok.xlsx');  // Changed to .xlsx
 
   console.log(`✅ stok toko: ${storeCode}`);
   console.log(borderTop);
-  console.log(`║ No`.padEnd(colNoWidth + 2) + `║ PLU`.padEnd(colPluWidth + 2) + `║ Nama Produk`.padEnd(colNameWidth + 2) + `║ Sisa Stok`.padEnd(colStockWidth + 2) + "║");
+  console.log(`║ No`.padEnd(colNoWidth + 3) + `║ PLU`.padEnd(colPluWidth + 3) + `║ Nama Produk`.padEnd(colNameWidth + 3) + `║ Stok`.padEnd(colStockWidth + 3) + "║");
   console.log(borderMid);
 
   addedProducts.forEach((p, i) => {
