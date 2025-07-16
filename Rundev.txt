@@ -1,0 +1,8 @@
+buat bookmart di browser lalu input urlbookmart
+javascript:(function () {     var script =  document.createElement('script');    script.src="//cdn.jsdelivr.net/npm/eruda";     document.body.appendChild(script);    script.onload = function () {         eruda.init()     } })();
+
+
+
+
+atau url versi 2 dibawah
+javascript:(function(){  const token = localStorage.getItem("USER_TOKEN");  const box = document.createElement('div');  box.style = 'position:fixed;bottom:10px;left:10px;z-index:99999;background:#111;color:#0f0;padding:10px;border-radius:6px;font-family:monospace;font-size:13px;max-width:90%;overflow:auto;white-space:pre-wrap;display:flex;flex-direction:column;gap:6px;';%20%20%20%20if%20(token)%20{%20%20%20%20const%20tokenText%20=%20document.createElement('div');%20%20%20%20tokenText.textContent%20=%20token;%20%20%20%20const%20copyBtn%20=%20document.createElement('button');%20%20%20%20copyBtn.textContent%20=%20'%F0%9F%93%8B%20Salin%20Token';%20%20%20%20copyBtn.style%20=%20'padding:6px%2010px;border:none;background:#0f0;color:#000;font-weight:bold;border-radius:4px;cursor:pointer;';%20%20%20%20copyBtn.onclick%20=%20function()%20{%20%20%20%20%20%20navigator.clipboard.writeText(token).then(()%20=%3E%20{%20%20%20%20%20%20%20%20copyBtn.textContent%20=%20'%E2%9C%85%20Disalin!';%20%20%20%20%20%20%20%20setTimeout(()%20=%3E%20copyBtn.textContent%20=%20'%F0%9F%93%8B%20Salin%20Token',%202000);%20%20%20%20%20%20});%20%20%20%20};%20%20%20%20box.appendChild(tokenText);%20%20%20%20box.appendChild(copyBtn);%20%20}%20else%20{%20%20%20%20box.textContent%20=%20'%E2%9D%8C%20USER_TOKEN%20tidak%20ditemukan%20di%20localStorage.';%20%20}%20%20document.body.appendChild(box);})();
