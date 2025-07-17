@@ -42,8 +42,8 @@ wrap_text() {
 
 # Proses setiap baris dari file PLU
 while IFS= read -r line; do
-    # Pisahkan PLU dan Deskripsi
-    id=$(echo "$line" | awk '{print $1}')
+    # Pisahkan PLU dan Deskripsi dengan spasi pertama sebagai pemisah
+    id=$(echo "$line" | cut -d' ' -f1)
     desc=$(echo "$line" | cut -d' ' -f2-)
 
     # Hitung total sales dari output.txt berdasarkan PLU
