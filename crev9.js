@@ -78,7 +78,7 @@ const outputXLSX = path.join(__dirname, 'stok.xlsx');  // Changed to .xlsx
   const addedProducts = [];
 
   for (const plu of pluList) {
-    console.log(`🔎 Mencari data untuk PLU: ${plu}...`);
+    console.log(`🔎 PLU: ${plu}...`);
     try {
       const res = await apiContext.post(
         '/assets-klikidmcore/api/post/cart-xpress/api/webapp/cart/add-to-cart',
