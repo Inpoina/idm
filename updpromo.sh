@@ -8,7 +8,7 @@ mv ~/storage/shared/kampret/UGD_promo_matriks.csv ~/idm/
 mariadb -u root -proot <<EOF
 use idm;
 delete from produk;
-LOAD DATA LOCAL INFILE '/data/data/com.termux/files/home/idm/UGD_PRODMAST.csv'
+LOAD DATA LOCAL INFILE '/data/data/com.termux/files/home/idm/UGD_promo_matriks.csv'
 INTO TABLE promo
 FIELDS TERMINATED BY '|'
 LINES TERMINATED BY '\n'                                                    IGNORE 1 ROWS;
