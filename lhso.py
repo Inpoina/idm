@@ -3,7 +3,12 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
 # === Step 1: Baca dan proses cepat pakai pandas ===
-df = pd.read_excel('LHSO.xlsx')
+df = pd.read_excel('LHSO.xlsx', header=None)  # Treating the first row as data, not headers
+
+# Pilih kolom yang diinginkan berdasarkan indeks kolom
+columns_to_keep = [0, 4,22,37,41,49,54,60,65,73,77]  # These are the indices of A, F, X, AM, AQ, AY, BD, BJ, BO, BW, CA
+
+df = df.iloc[:, columns_to_keep]
 
 # Hapus baris yang kolom pertama-nya kosong
 df = df[df.iloc[:, 0].notna()].copy()
@@ -12,7 +17,7 @@ df = df[df.iloc[:, 0].notna()].copy()
 df.insert(0, 'No', range(1, len(df) + 1))
 
 # Simpan hasil sementara
-df.to_excel('file_diedit.xlsx', index=False)
+df.to_excel('file_diedit.xlsx', index=False, header=False)
 
 # === Step 2: Buka hasil dan atur lebar kolom (jika mau) ===
 wb = load_workbook('file_diedit.xlsx')
