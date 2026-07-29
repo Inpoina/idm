@@ -51,3 +51,12 @@ WHERE
     AND CETAKLAYAR3 = 'POTONGAN LANGSUNG';
 
 
+sort revisi tabel SO
+
+SELECT t1.plu, t2.singkatan, t1.qty, t2.price, (t1.qty * t2.price) AS total
+FROM SO t1 
+JOIN produk t2 ON t1.plu = t2.plu
+JOIN modis t3 ON t1.plu = t3.plu
+WHERE t3.NAMA_RAK LIKE '%med%'
+ORDER BY total DESC;
+
